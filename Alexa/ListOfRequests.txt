@@ -1,15 +1,17 @@
+UserLoginRequest my identification number is {userID}
+UserLoginRequest my ID is {userID}
+UserLoginRequest {userID}
+UserLoginRequest {userID} is my ID
+UserLoginRequest the ID is {userID}
+
 PersonalInfo change my age to {age}
 PersonalInfo change my gender to {gender}
-PersonalInfo change my height to {heightFeet} feet and {heightInches} inches
-PersonalInfo change my weight to {weight}
+PersonalInfo change my race to {race}
 PersonalInfo set my age as {age}
-PersonalInfo set my sex as {gender}
-PersonalInfo set my height as {heightFeet} feet and {heightInches} inches
-PersonalInfo set my weight as {weight}
-PersonalInfo set my weight as {weight} pounds height as {heightFeet} feet and {heightInches} inches age as {age} and sex as {gender}
-PersonalInfo set my height as {heightFeet} feet and {heightInches} inches weight as {weight} pounds age as {age} and sex as {gender}
-PersonalInfo set my age as {age} height as {heightFeet} feet and {heightInches} inches weight as {weight} pounds and sex as {gender}
-PersonalInfo set my sex as {gender} height as {heightFeet} feet and {heightInches} inches weight as {weight} pounds and age as {age}
+PersonalInfo set my gender as {gender}
+PersonalInfo set my race as {race}
+PersonalInfo set my race as {race} my age as {age} and my gender as {gender}
+PersonalInfo set my age as {age} my race as {race} and my gender as {gender}
 
 HelpMe what can i ask you
 HelpMe help me

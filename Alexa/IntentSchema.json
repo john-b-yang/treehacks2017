@@ -8,20 +8,26 @@
     }, {
         "intent": "PersonalInfo",
         "slots": [{
-            "name": "heightFeet",
-            "type": "AMAZON.NUMBER"
-        }, {
-            "name": "heightInches",
-            "type": "AMAZON.NUMBER"
-        }, {
             "name": "age",
-            "type": "AMAZON.NUMBER"
-        }, {
-            "name": "weight",
             "type": "AMAZON.NUMBER"
         }, {
             "name": "gender",
             "type": "boolean"
+        }, {
+            "name": "race",
+            "type": "ethnicity"
+        }]
+    }, {
+        "intent": "UserLoginRequest",
+        "slots": [{
+            "name": "userID",
+            "type": "AMAZON.NUMBER"
+        }]
+    }, {
+        "intent": "VerificationLoginRequest",
+        "slots": [{
+            "name": "verifyID",
+            "type": "AMAZON.NUMBER"
         }]
     }, {
         "intent": "HelpMe"

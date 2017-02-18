@@ -1,3 +1,17 @@
+var ethnic = "temp"; //race
+var gender = "true"; //female, false for male
+var age = 20; //years
+var userID = 0;
+var verificationID = 0;
+
+var ethnicities = {
+    "black": "African American",
+    "african american": "African American",
+    "white": "Caucasian",
+    "caucasian": "Caucasian",
+    "asian": "Asian"
+}
+
 exports.handler = (event, context) => {
     try {
         if (event.session.new) {
@@ -8,11 +22,10 @@ exports.handler = (event, context) => {
         switch (event.request.type) {
 
             case "LaunchRequest":
-                // > Launch Request
                 console.log("LAUNCH REQUEST")
                 context.succeed(
                     generateResponse(
-                        buildSpeechletResponse("Welcome to health assistant. How may I help you?", false) //MARK
+                        buildSpeechletResponse("Welcome to health assistant. Please login to your account by stating your user ID.", false) //MARK
                     )
                 )
                 break;
@@ -22,22 +35,37 @@ exports.handler = (event, context) => {
                 console.log(`INTENT REQUEST`)
 
                 switch (event.request.intent.name) {
+                    case "UserLoginRequest":
+                        console.log("Logging in")
+                        var temp = event.request.intent.slots.userID;
+
+                        if (temp) { //MARK: USER ID is found in backend database
+                            userID = temp;
+                            //Mark: Load information of user into variables.
+                            context.succeed(
+                                generateResponse {
+                                    buildSpeechletResponse("Your identification information was found and you are now registered. Feel free to set personal information and request analysis.", true), {}
+                                }
+                            )
+                        } else {
+                            context.succeed(
+                                generateResponse {
+                                    buildSpeechletResponse("I'm sorry, your identification value was not found in our internal database, try again?", true), {}
+                                }
+                            )
+                        }
+
                     case "PersonalInfo":
-                        var heightInFeet = event.request.intent.slots.heightFeet;
-                        if (heightInFeet && heightInFeet.value) {
-                            feet = parseInt(heightInFeet.value);
-                        }
-                        var heightInInches = event.request.intent.slots.heightInches;
-                        if (heightInInches && heightInInches.value) {
-                            inches = parseInt(heightInInches.value);
-                        }
                         var a = event.request.intent.slots.age;
                         if (a && a.value) {
                             age = parseInt(a.value);
                         }
-                        var w = event.request.intent.slots.weight;
-                        if (w && w.value) {
-                            weight = parseInt(w.value);
+                        var race = event.request.intent.slots.race;
+                        if (race && race.value) {
+                            race = race.value.toLowerCase();
+                            if (ethnicities[race]) {
+                                ethnic = ethnicities[race];
+                            }
                         }
                         var g = event.request.intent.slots.gender;
                         if (g && g.value) {
