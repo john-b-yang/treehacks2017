@@ -1,0 +1,38 @@
+PersonalInfo change my age to {age}
+PersonalInfo change my gender to {gender}
+PersonalInfo change my height to {heightFeet} feet and {heightInches} inches
+PersonalInfo change my weight to {weight}
+PersonalInfo set my age as {age}
+PersonalInfo set my sex as {gender}
+PersonalInfo set my height as {heightFeet} feet and {heightInches} inches
+PersonalInfo set my weight as {weight}
+PersonalInfo set my weight as {weight} pounds height as {heightFeet} feet and {heightInches} inches age as {age} and sex as {gender}
+PersonalInfo set my height as {heightFeet} feet and {heightInches} inches weight as {weight} pounds age as {age} and sex as {gender}
+PersonalInfo set my age as {age} height as {heightFeet} feet and {heightInches} inches weight as {weight} pounds and sex as {gender}
+PersonalInfo set my sex as {gender} height as {heightFeet} feet and {heightInches} inches weight as {weight} pounds and age as {age}
+
+HelpMe what can i ask you
+HelpMe help me
+HelpMe what can I ask you
+HelpMe get help
+HelpMe to help
+HelpMe to help me
+HelpMe what commands can I ask
+HelpMe what commands can I say
+HelpMe what can I do
+HelpMe what can I use this for
+HelpMe what questions can I ask
+HelpMe what can you do
+HelpMe what do you do
+HelpMe how do I use you
+HelpMe how can I use you
+HelpMe what can you tell me
+
+TerminateCal stop
+TerminateCal cancel
+TerminateCal turn off
+TerminateCal thank you
+TerminateCal i am finished
+TerminateCal close
+TerminateCal i am done
+TerminateCal done

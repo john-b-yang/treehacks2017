@@ -1,0 +1,31 @@
+{
+    "intents": [{
+        "intent": "MedicalInfo",
+        "slots": [{
+            "name": "Illness",
+            "type": "illness"
+        }]
+    }, {
+        "intent": "PersonalInfo",
+        "slots": [{
+            "name": "heightFeet",
+            "type": "AMAZON.NUMBER"
+        }, {
+            "name": "heightInches",
+            "type": "AMAZON.NUMBER"
+        }, {
+            "name": "age",
+            "type": "AMAZON.NUMBER"
+        }, {
+            "name": "weight",
+            "type": "AMAZON.NUMBER"
+        }, {
+            "name": "gender",
+            "type": "boolean"
+        }]
+    }, {
+        "intent": "HelpMe"
+    }, {
+        "intent": "TerminateCal"
+    }]
+}
