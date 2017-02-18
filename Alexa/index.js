@@ -50,7 +50,7 @@ exports.handler = (event, context) => {
                             //Mark: Load information of user into variables.
                             context.succeed(
                                 generateResponse {
-                                    buildSpeechletResponse("Your identification information was found and you are now registered. Feel free to set personal information and request analysis.", true), {}
+                                    buildSpeechletResponse("You are now registered. Feel free to set personal information and request analysis.", true), {}
                                 }
                             )
                         } else {
@@ -66,13 +66,6 @@ exports.handler = (event, context) => {
                         if (a && a.value) {
                             age = parseInt(a.value);
                         }
-                        var race = event.request.intent.slots.race;
-                        if (race && race.value) {
-                            race = race.value.toLowerCase();
-                            if (ethnicities[race]) {
-                                ethnic = ethnicities[race];
-                            }
-                        }
                         var g = event.request.intent.slots.gender;
                         if (g && g.value) {
                             gender = g.value.toLowerCase();
@@ -80,6 +73,20 @@ exports.handler = (event, context) => {
                                 gender = true;
                             } else {
                                 gender = false;
+                            }
+                        }
+                        var race = event.request.intent.slots.race;
+                        if (race && race.value) {
+                            race = race.value.toLowerCase();
+                            if (ethnicities[race]) {
+                                ethnic = ethnicities[race];
+                            } else {
+                                context.succeed(
+                                    generateResponse(
+                                        buildSpeechletResponse('Please restate your request and name a race, not a country of origin or citizenship.', false), {}
+                                    )
+                                )
+                                break;
                             }
                         }
 
