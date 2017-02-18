@@ -38,3 +38,6 @@ TerminateCal i am finished
 TerminateCal close
 TerminateCal i am done
 TerminateCal done
+
+DefineParkinsons what is parkinsons disease
+DefineParkinsons define parkinsons disease

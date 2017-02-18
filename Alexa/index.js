@@ -77,6 +77,14 @@ exports.handler = (event, context) => {
                             }
                         }
 
+                    case "DefineParkinsons":
+                        context.succeed(
+                            generateResponse(
+                                buildSpeechletResponse('Parkinsons disease (PD) is a long-term degenerative disorder of the central nervous system that mainly affects the motor system. Symptoms include shaking, slowness of movement, depression and emotional problems. The cause of Parkinsons remains unknown, but it is believed to be a product of both genetic and environmental factors.', false), {}
+                            )
+                        )
+                        break;
+
                     case "HelpMe":
                         context.succeed(
                             generateResponse(
