@@ -9,7 +9,13 @@ var ethnicities = {
     "african american": "African American",
     "white": "Caucasian",
     "caucasian": "Caucasian",
-    "asian": "Asian"
+    "asian": "Asian",
+    "hispanic": "Hispanic/Latino",
+    "latino": "Hispanic/Latino",
+    "alaskan native": "American Indian / Alaskan Native",
+    "american indian": "American Indian / Alaskan Native"
+    "Native Hawaiian": "Native Hawaiian / Pacific Islander",
+    "Pacific Islander": "Native Hawaiian / Pacific Islander"
 }
 
 exports.handler = (event, context) => {
