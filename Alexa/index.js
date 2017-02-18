@@ -31,7 +31,7 @@ exports.handler = (event, context) => {
                 console.log("LAUNCH REQUEST")
                 context.succeed(
                     generateResponse(
-                        buildSpeechletResponse("Welcome to health assistant. Please login to your account by stating your user ID.", false) //MARK
+                        buildSpeechletResponse("Welcome to Imperium, your personal health assistant! Please login to your account by stating your user ID.", false) //MARK
                     )
                 )
                 break;
@@ -62,32 +62,41 @@ exports.handler = (event, context) => {
                         }
 
                     case "PersonalInfo":
-                        var a = event.request.intent.slots.age;
-                        if (a && a.value) {
-                            age = parseInt(a.value);
-                        }
-                        var g = event.request.intent.slots.gender;
-                        if (g && g.value) {
-                            gender = g.value.toLowerCase();
-                            if (gender == "female") {
-                                gender = true;
-                            } else {
-                                gender = false;
+                        if (userID != 0) {
+                            var a = event.request.intent.slots.age;
+                            if (a && a.value) {
+                                age = parseInt(a.value);
                             }
-                        }
-                        var race = event.request.intent.slots.race;
-                        if (race && race.value) {
-                            race = race.value.toLowerCase();
-                            if (ethnicities[race]) {
-                                ethnic = ethnicities[race];
-                            } else {
-                                context.succeed(
-                                    generateResponse(
-                                        buildSpeechletResponse('Please restate your request and name a race, not a country of origin or citizenship.', false), {}
+                            var g = event.request.intent.slots.gender;
+                            if (g && g.value) {
+                                gender = g.value.toLowerCase();
+                                if (gender == "female") {
+                                    gender = true;
+                                } else {
+                                    gender = false;
+                                }
+                            }
+                            var race = event.request.intent.slots.race;
+                            if (race && race.value) {
+                                race = race.value.toLowerCase();
+                                if (ethnicities[race]) {
+                                    ethnic = ethnicities[race];
+                                } else {
+                                    context.succeed(
+                                        generateResponse(
+                                            buildSpeechletResponse('Please restate your request and name a race, not a country of origin or citizenship.', false), {}
+                                        )
                                     )
-                                )
-                                break;
+                                    break;
+                                }
                             }
+                        } else {
+                            context.succeed(
+                                generateResponse(
+                                    buildSpeechletResponse('Please login first by stating your user ID to access your account', false), {}
+                                )
+                            )
+                            break;
                         }
 
                     case "DefineParkinsons":
@@ -101,7 +110,7 @@ exports.handler = (event, context) => {
                     case "HelpMe":
                         context.succeed(
                             generateResponse(
-                                buildSpeechletResponse('', false), {}
+                                buildSpeechletResponse('Hello! Welcome to Imperium. I am a health database that keeps track of your health information. Input personal information or request an analysis of your health portfolio.', false), {}
                             )
                         )
                         break;
@@ -109,7 +118,7 @@ exports.handler = (event, context) => {
                     case "TerminateCal":
                         context.succeed(
                             generateResponse(
-                                buildSpeechletResponse(`Thanks! See you around!`, true), {} //MARK
+                                buildSpeechletResponse(`Thanks for using Imperium! See you around!`, true), {} //MARK
                             )
                         )
                         console.log('SESSION ENDED REQUEST')
@@ -121,7 +130,7 @@ exports.handler = (event, context) => {
                 // Session Ended Request
                 context.succeed(
                     generateResponse(
-                        buildSpeechletResponse(`Thanks! See you around!`, true), {} //MARK
+                        buildSpeechletResponse(`Thanks for using Imperium! See you around!`, true), {} //MARK
                     )
                 )
                 console.log('SESSION ENDED REQUEST')
