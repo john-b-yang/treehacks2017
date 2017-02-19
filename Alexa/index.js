@@ -43,9 +43,9 @@ exports.handler = (event, context) => {
                 switch (event.request.intent.name) {
                     case "UserLoginRequest":
                         console.log("Logging in")
-                        var temp = event.request.intent.slots.userID;
+                        var temp = parseInt(event.request.intent.slots.userID);
 
-                        if (temp) { //MARK: USER ID is found in backend database
+                        if (temp != 0) { //MARK: USER ID is found in backend database
                             userID = temp;
                             //Mark: Load information of user into variables.
                             context.succeed(
@@ -56,7 +56,7 @@ exports.handler = (event, context) => {
                         } else {
                             context.succeed(
                                 generateResponse (
-                                    buildSpeechletResponse("I'm sorry, your identification value was not found in our internal database, try again?", true), {}
+                                    buildSpeechletResponse("I'm sorry, your identification value was not found in our internal database, try again?", false), {}
                                 )
                             )
                         }

@@ -23,10 +23,10 @@ exports.handler = function(event, context, callback) {
 
 let handlers = {
     'PersonalInfo': function() {
-        
+
     },
     'UserLoginRequest': function() {
-
+        var userID = this.event.request.intent.slots.userID;
     },
     'HelpMe': function() {
         this.emit(':tell', 'Hello! Welcome to Imperium. I am a health database that keeps track of your health information. Input personal information or request an analysis of your health portfolio.')
