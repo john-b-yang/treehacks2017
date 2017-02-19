@@ -13,7 +13,7 @@ var ethnicities = {
     "hispanic": "Hispanic/Latino",
     "latino": "Hispanic/Latino",
     "alaskan native": "American Indian / Alaskan Native",
-    "american indian": "American Indian / Alaskan Native"
+    "american indian": "American Indian / Alaskan Native",
     "Native Hawaiian": "Native Hawaiian / Pacific Islander",
     "Pacific Islander": "Native Hawaiian / Pacific Islander"
 }
@@ -30,8 +30,8 @@ exports.handler = (event, context) => {
             case "LaunchRequest":
                 console.log("LAUNCH REQUEST")
                 context.succeed(
-                    generateResponse(
-                        buildSpeechletResponse("Welcome to Imperium, your personal health assistant! Please login to your account by stating your user ID.", false) //MARK
+                    generateResponse (
+                        buildSpeechletResponse("Welcome to Imperium, your personal health assistant! Please login to your account by stating your user ID.", false), {} //MARK
                     )
                 )
                 break;
@@ -49,15 +49,15 @@ exports.handler = (event, context) => {
                             userID = temp;
                             //Mark: Load information of user into variables.
                             context.succeed(
-                                generateResponse {
-                                    buildSpeechletResponse("You are now registered. Feel free to set personal information and request analysis.", true), {}
-                                }
+                                generateResponse (
+                                    buildSpeechletResponse("You are now registered. Feel free to set personal information and request analysis.", false), {}
+                                )
                             )
                         } else {
                             context.succeed(
-                                generateResponse {
+                                generateResponse (
                                     buildSpeechletResponse("I'm sorry, your identification value was not found in our internal database, try again?", true), {}
-                                }
+                                )
                             )
                         }
 

@@ -30,6 +30,9 @@ HelpMe how do I use you
 HelpMe how can I use you
 HelpMe what can you tell me
 
+DefineParkinsons what is parkinsons disease
+DefineParkinsons define parkinsons disease
+
 TerminateCal stop
 TerminateCal cancel
 TerminateCal turn off
@@ -38,6 +41,3 @@ TerminateCal i am finished
 TerminateCal close
 TerminateCal i am done
 TerminateCal done
-
-DefineParkinsons what is parkinsons disease
-DefineParkinsons define parkinsons disease

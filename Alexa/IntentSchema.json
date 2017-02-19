@@ -1,11 +1,5 @@
 {
     "intents": [{
-        "intent": "MedicalInfo",
-        "slots": [{
-            "name": "Illness",
-            "type": "illness"
-        }]
-    }, {
         "intent": "PersonalInfo",
         "slots": [{
             "name": "age",
@@ -24,16 +18,12 @@
             "type": "AMAZON.NUMBER"
         }]
     }, {
-        "intent": "VerificationLoginRequest",
-        "slots": [{
-            "name": "verifyID",
-            "type": "AMAZON.NUMBER"
-        }]
-    }, {
         "intent": "HelpMe"
-    }, {
-        "intent": "TerminateCal"
     }, {
         "intent": "DefineParkinsons"
     }]
 }
+
+/*{
+   "intent": "TerminateCal"
+},*/
