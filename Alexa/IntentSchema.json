@@ -21,6 +21,8 @@
         "intent": "HelpMe"
     }, {
         "intent": "DefineParkinsons"
+    }, {
+        "intent": "RequestInfo"
     }]
 }
 

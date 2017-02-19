@@ -1,6 +1,5 @@
 UserLoginRequest my identification number is {userID}
 UserLoginRequest my ID is {userID}
-UserLoginRequest {userID}
 UserLoginRequest {userID} is my ID
 UserLoginRequest the ID is {userID}
 
@@ -41,3 +40,9 @@ TerminateCal i am finished
 TerminateCal close
 TerminateCal i am done
 TerminateCal done
+
+RequestInfo what is my information
+RequestInfo who am i
+RequestInfo what is my user information
+RequestInfo tell me my information
+RequestInfo what are my stats

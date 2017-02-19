@@ -1,7 +1,7 @@
-var ethnic = "temp"; //race
+var ethnic = "Asian"; //race
 var gender = "true"; //female, false for male
 var age = 20; //years
-var userID = 0;
+var userID = 314;
 var verificationID = 0;
 
 var ethnicities = {
@@ -10,12 +10,12 @@ var ethnicities = {
     "white": "Caucasian",
     "caucasian": "Caucasian",
     "asian": "Asian",
-    "hispanic": "Hispanic/Latino",
-    "latino": "Hispanic/Latino",
-    "alaskan native": "American Indian / Alaskan Native",
-    "american indian": "American Indian / Alaskan Native",
-    "Native Hawaiian": "Native Hawaiian / Pacific Islander",
-    "Pacific Islander": "Native Hawaiian / Pacific Islander"
+    "hispanic": "Hispanic and Latino",
+    "latino": "Hispanic and Latino",
+    "alaskan native": "American Indian and Alaskan Native",
+    "american indian": "American Indian and Alaskan Native",
+    "Native Hawaiian": "Native Hawaiian and Pacific Islander",
+    "Pacific Islander": "Native Hawaiian and Pacific Islander"
 }
 
 exports.handler = (event, context) => {
@@ -30,7 +30,7 @@ exports.handler = (event, context) => {
             case "LaunchRequest":
                 console.log("LAUNCH REQUEST")
                 context.succeed(
-                    generateResponse (
+                    generateResponse(
                         buildSpeechletResponse("Welcome to Imperium, your personal health assistant! Please login to your account by stating your user ID.", false), {} //MARK
                     )
                 )
@@ -45,24 +45,25 @@ exports.handler = (event, context) => {
                         console.log("Logging in")
                         var temp = parseInt(event.request.intent.slots.userID);
 
-                        if (temp != 0) { //MARK: USER ID is found in backend database
+                        if (temp !== 0) { //MARK: USER ID is found in backend database
                             userID = temp;
                             //Mark: Load information of user into variables.
                             context.succeed(
-                                generateResponse (
+                                generateResponse(
                                     buildSpeechletResponse("You are now registered. Feel free to set personal information and request analysis.", false), {}
                                 )
                             )
                         } else {
                             context.succeed(
-                                generateResponse (
+                                generateResponse(
                                     buildSpeechletResponse("I'm sorry, your identification value was not found in our internal database, try again?", false), {}
                                 )
                             )
                         }
+                        break;
 
                     case "PersonalInfo":
-                        if (userID != 0) {
+                        if (userID !== 0) {
                             var a = event.request.intent.slots.age;
                             if (a && a.value) {
                                 age = parseInt(a.value);
@@ -90,6 +91,7 @@ exports.handler = (event, context) => {
                                     break;
                                 }
                             }
+
                         } else {
                             context.succeed(
                                 generateResponse(
@@ -98,7 +100,12 @@ exports.handler = (event, context) => {
                             )
                             break;
                         }
-
+                        break;
+                        context.succeed(
+                                generateResponse(
+                                    buildSpeechletResponse(`Got it! Your userID is listed as ${userID}, age is ${age}, gender is ${temp} and ethnicity is ${ethnic}`, false), {}
+                                )
+                            )
                     case "DefineParkinsons":
                         context.succeed(
                             generateResponse(
@@ -111,6 +118,18 @@ exports.handler = (event, context) => {
                         context.succeed(
                             generateResponse(
                                 buildSpeechletResponse('Hello! Welcome to Imperium. I am a health database that keeps track of your health information. Input personal information or request an analysis of your health portfolio.', false), {}
+                            )
+                        )
+                        break;
+
+                    case "RequestInfo":
+                        var temp = "female";
+                        if (!gender) {
+                            temp = "male";
+                        }
+                        context.succeed(
+                            generateResponse(
+                                buildSpeechletResponse(`Your userID is listed as 314, age is ${age}, gender is ${temp} and ethnicity is ${ethnic}`, false), {}
                             )
                         )
                         break;
